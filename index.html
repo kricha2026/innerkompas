@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <title>Inner Kompas — Erken wat je voelt</title>
+    <meta name="description" content="Inner Kompas is een digitale ruimte die je helpt navigeren vanuit je innerlijk kompas. Door emotieregulatie, lichaamsbewustzijn en begeleide reflectie." />
+    <link rel="icon" type="image/svg+xml" href="/icons/icon-192.svg" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.svg" />
+    <link rel="manifest" href="/manifest.json" />
+
+
+    <!-- PWA / Mobile App Meta -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Inner Kompas" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#F5F1E8" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <meta property="og:title" content="Inner Kompas — Erken wat je voelt" />
+    <meta property="og:description" content="Erken wat je voelt. Daar ligt je kompas. Van daaruit navigeer je als vanzelf." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/og.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="/og.jpg" />
+
+    <!-- 
+      TESTER MODE: Earliest possible detection.
+      This inline script runs BEFORE any JS bundle loads.
+      It checks the URL for ?mode=tester and sets a CSS class + global flag.
+      The CSS class triggers `html.tester-mode .tester-hide { display: none !important; }`
+      which is defined in index.css — hiding Sessies/Coach buttons via pure CSS.
+    -->
+    <script>
+      (function() {
+        var href = window.location.href;
+        var search = window.location.search;
+        var t = false;
+        try { t = t || new URLSearchParams(search).get('mode') === 'tester'; } catch(e) {}
+        try { t = t || href.indexOf('mode=tester') !== -1; } catch(e) {}
+        try { t = t || window.location.hash.indexOf('mode=tester') !== -1; } catch(e) {}
+        try { t = t || sessionStorage.getItem('ik_tester_mode') === 'true'; } catch(e) {}
+        console.log('[IK v3] URL:', href, '| search:', search, '| detected:', t);
+        if (t) {
+          document.documentElement.classList.add('tester-mode');
+          window.__IK_TESTER_MODE__ = true;
+          try { sessionStorage.setItem('ik_tester_mode', 'true'); } catch(e) {}
+          console.log('[IK v3] tester-mode class ADDED to <html>');
+        } else {
+          console.log('[IK v3] tester mode NOT detected');
+        }
+      })();
+    </script>
+
+    <!-- Mobile viewport height fix: set --vh for iOS Safari -->
+    <script>
+      (function() {
+        function setVH() {
+          var vh = window.innerHeight * 0.01;
+          document.documentElement.style.setProperty('--vh', vh + 'px');
+        }
+        setVH();
+        window.addEventListener('resize', setVH);
+        // Also update on orientation change
+        window.addEventListener('orientationchange', function() {
+          setTimeout(setVH, 100);
+        });
+      })();
+    </script>
+
+    <!-- Inline CSS fallback: in case index.css loads late -->
+    <style>
+      html.tester-mode .tester-hide { display: none !important; }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/main.tsx"></script>
+  </body>
+</html>
+

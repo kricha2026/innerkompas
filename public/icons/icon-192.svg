@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192">
+  <rect width="192" height="192" rx="40" fill="#F5F1E8"/>
+  <circle cx="96" cy="96" r="60" fill="none" stroke="#D4AF7A" stroke-width="2.5" opacity="0.6"/>
+  <circle cx="96" cy="96" r="50" fill="none" stroke="#D4AF7A" stroke-width="1.5" opacity="0.3"/>
+  <!-- Compass rose -->
+  <polygon points="96,46 106,86 96,96 86,86" fill="#3A3633" opacity="0.8"/>
+  <polygon points="96,146 86,106 96,96 106,106" fill="#D4AF7A" opacity="0.7"/>
+  <polygon points="46,96 86,86 96,96 86,106" fill="#C9A76C" opacity="0.5"/>
+  <polygon points="146,96 106,106 96,96 106,86" fill="#C9A76C" opacity="0.5"/>
+  <!-- Center dot -->
+  <circle cx="96" cy="96" r="5" fill="#D4AF7A"/>
+  <circle cx="96" cy="96" r="2.5" fill="#3A3633"/>
+  <!-- Cardinal markers -->
+  <line x1="96" y1="30" x2="96" y2="38" stroke="#D4AF7A" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  <line x1="96" y1="154" x2="96" y2="162" stroke="#D4AF7A" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  <line x1="30" y1="96" x2="38" y2="96" stroke="#D4AF7A" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+  <line x1="154" y1="96" x2="162" y2="96" stroke="#D4AF7A" stroke-width="2" stroke-linecap="round" opacity="0.5"/>
+</svg>

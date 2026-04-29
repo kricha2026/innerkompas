@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#F5F1E8"/>
+  <circle cx="256" cy="256" r="160" fill="none" stroke="#D4AF7A" stroke-width="4" opacity="0.6"/>
+  <circle cx="256" cy="256" r="135" fill="none" stroke="#D4AF7A" stroke-width="2" opacity="0.3"/>
+  <!-- Compass rose -->
+  <polygon points="256,96 276,226 256,256 236,226" fill="#3A3633" opacity="0.8"/>
+  <polygon points="256,416 236,286 256,256 276,286" fill="#D4AF7A" opacity="0.7"/>
+  <polygon points="96,256 226,236 256,256 226,276" fill="#C9A76C" opacity="0.5"/>
+  <polygon points="416,256 286,276 256,256 286,236" fill="#C9A76C" opacity="0.5"/>
+  <!-- Center dot -->
+  <circle cx="256" cy="256" r="12" fill="#D4AF7A"/>
+  <circle cx="256" cy="256" r="6" fill="#3A3633"/>
+  <!-- Cardinal markers -->
+  <line x1="256" y1="76" x2="256" y2="92" stroke="#D4AF7A" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+  <line x1="256" y1="420" x2="256" y2="436" stroke="#D4AF7A" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+  <line x1="76" y1="256" x2="92" y2="256" stroke="#D4AF7A" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+  <line x1="420" y1="256" x2="436" y2="256" stroke="#D4AF7A" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+</svg>
