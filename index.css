@@ -1,0 +1,344 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 38 33% 93%;
+    --foreground: 20 5% 21%;
+
+    --card: 38 30% 96%;
+    --card-foreground: 20 5% 21%;
+
+    --popover: 38 30% 96%;
+    --popover-foreground: 20 5% 21%;
+
+    --primary: 36 42% 65%;
+    --primary-foreground: 20 5% 15%;
+
+    --secondary: 38 25% 88%;
+    --secondary-foreground: 20 5% 21%;
+
+    --muted: 38 20% 90%;
+    --muted-foreground: 20 5% 45%;
+
+    --accent: 36 42% 65%;
+    --accent-foreground: 20 5% 15%;
+
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 36 20% 85%;
+    --input: 36 20% 85%;
+    --ring: 36 42% 65%;
+
+    --radius: 1rem;
+
+    --sand: #F5F1E8;
+    --sand-light: #FAF8F3;
+    --sand-dark: #E8E2D6;
+    --gold: #D4AF7A;
+    --gold-muted: #C9A76C;
+    --gold-light: #E8D5B0;
+    --anthracite: #3A3633;
+    --anthracite-light: #5A5653;
+    --anthracite-soft: #7A7673;
+    --cream: #FDFBF7;
+    --warm-white: #FFFDF9;
+
+    /* Safe area insets (set by viewport-fit=cover) */
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+
+    /* Mobile header height — smaller on mobile */
+    --header-h: 56px;
+  }
+
+  @media (min-width: 640px) {
+    :root {
+      --header-h: 72px;
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+    /* Prevent tap highlight on mobile */
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    /* Prevent iOS text size adjustment */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
+    /* Prevent overscroll bounce on iOS */
+    overscroll-behavior: none;
+  }
+
+  body {
+    background-color: var(--sand);
+    color: var(--anthracite);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Prevent pull-to-refresh on mobile */
+    overscroll-behavior-y: none;
+    /* Safe area padding for notch devices */
+    padding-left: var(--sal);
+    padding-right: var(--sar);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Crimson Text', serif;
+    color: var(--anthracite);
+  }
+
+  /* Prevent iOS zoom on input focus */
+  input, textarea, select {
+    font-size: 16px !important;
+  }
+
+  @media (min-width: 640px) {
+    input, textarea, select {
+      font-size: inherit !important;
+    }
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Crimson Text', serif;
+  }
+  
+  .font-sans {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .text-anthracite {
+    color: var(--anthracite);
+  }
+
+  .text-anthracite-light {
+    color: var(--anthracite-light);
+  }
+
+  .text-anthracite-soft {
+    color: var(--anthracite-soft);
+  }
+
+  .text-gold {
+    color: var(--gold);
+  }
+
+  .text-gold-muted {
+    color: var(--gold-muted);
+  }
+
+  .bg-sand {
+    background-color: var(--sand);
+  }
+
+  .bg-sand-light {
+    background-color: var(--sand-light);
+  }
+
+  .bg-sand-dark {
+    background-color: var(--sand-dark);
+  }
+
+  .bg-cream {
+    background-color: var(--cream);
+  }
+
+  .bg-warm-white {
+    background-color: var(--warm-white);
+  }
+
+  .bg-gold {
+    background-color: var(--gold);
+  }
+
+  .bg-gold-light {
+    background-color: var(--gold-light);
+  }
+
+  .bg-anthracite {
+    background-color: var(--anthracite);
+  }
+
+  .border-gold {
+    border-color: var(--gold);
+  }
+
+  .border-gold-light {
+    border-color: var(--gold-light);
+  }
+
+  .border-sand-dark {
+    border-color: var(--sand-dark);
+  }
+
+  .ring-gold {
+    --tw-ring-color: var(--gold);
+  }
+
+  /* ─── Mobile-first height utilities ─── */
+  /* Use calc(var(--vh, 1vh) * 100) for true viewport height on mobile */
+  .h-screen-mobile {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+  }
+
+  .min-h-screen-mobile {
+    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
+  }
+
+  /* Content area below header */
+  .h-content-mobile {
+    height: calc(100vh - var(--header-h));
+    height: calc(var(--vh, 1vh) * 100 - var(--header-h));
+  }
+
+  .min-h-content-mobile {
+    min-height: calc(100vh - var(--header-h));
+    min-height: calc(var(--vh, 1vh) * 100 - var(--header-h));
+  }
+
+  /* Safe area bottom padding */
+  .pb-safe {
+    padding-bottom: var(--sab);
+  }
+
+  .pb-safe-extra {
+    padding-bottom: calc(var(--sab) + 8px);
+  }
+
+  /* Touch-friendly tap targets */
+  .touch-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Gentle fade-in animation */
+@keyframes gentle-fade {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gentle-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+
+@keyframes slow-pulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.animate-gentle-fade {
+  animation: gentle-fade 0.6s ease-out forwards;
+}
+
+.animate-gentle-fade-delay-1 {
+  animation: gentle-fade 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+.animate-gentle-fade-delay-2 {
+  animation: gentle-fade 0.6s ease-out 0.4s forwards;
+  opacity: 0;
+}
+
+.animate-gentle-fade-delay-3 {
+  animation: gentle-fade 0.6s ease-out 0.6s forwards;
+  opacity: 0;
+}
+
+.animate-breathe {
+  animation: gentle-breathe 4s ease-in-out infinite;
+}
+
+.animate-slow-pulse {
+  animation: slow-pulse 3s ease-in-out infinite;
+}
+
+/* ─── Mobile-optimized scrollbar ─── */
+/* Hide scrollbar on mobile for cleaner look */
+@media (max-width: 639px) {
+  ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+}
+
+/* Desktop scrollbar */
+@media (min-width: 640px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--sand);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--sand-dark);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--gold-light);
+  }
+}
+
+/* Selection color */
+::selection {
+  background-color: var(--gold-light);
+  color: var(--anthracite);
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TESTER MODE — Pure CSS hiding
+   When html has class "tester-mode", elements with "tester-hide" are hidden.
+   This works BEFORE React renders and cannot be overridden by React state.
+   ═══════════════════════════════════════════════════════════════════ */
+html.tester-mode .tester-hide {
+  display: none !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE KEYBOARD HANDLING
+   When the virtual keyboard is open, reduce spacing and hide non-essential elements
+   ═══════════════════════════════════════════════════════════════════ */
+@media (max-height: 500px) and (max-width: 768px) {
+  .keyboard-hide {
+    display: none !important;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   MOBILE TOUCH IMPROVEMENTS
+   ═══════════════════════════════════════════════════════════════════ */
+@media (hover: none) and (pointer: coarse) {
+  /* Larger touch targets on touch devices */
+  button, [role="button"], a {
+    min-height: 36px;
+  }
+
+  /* Remove hover effects on touch devices (they cause sticky states) */
+  .hover-desktop-only:hover {
+    background-color: inherit;
+    color: inherit;
+  }
+}
